@@ -1,2 +1,7 @@
 .venv
 .DS_Store
+
+lightning_logs
+w10checkpoints
+tensorboard_logs
+runs
