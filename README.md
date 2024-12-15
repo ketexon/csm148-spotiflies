@@ -1,5 +1,5 @@
 # Exploration, Grouping, and Prediction of Genre in Spotify Songs
-## Team Spotiflies: Joanna, Aaron, Aubrey, Kennedy, Aster, Ethan
+## Team Spotiflies: Aubrey Clark, Kennedy Kang, Aaron Kwan, Joanna Liu, Ethan Mai, Aster Phan
 - [GitHub Link](https://github.com/ketexon/csm148-spotiflies)
 
 ### I
