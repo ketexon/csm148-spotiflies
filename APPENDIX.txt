@@ -1,30 +1,28 @@
 ### I
-
 Boxplots were used to identify the spread of numerical data. Histograms of each feature were created to visualize the frequency of values for the data. By doing this, we determined the skewedness of each feature. 
 A heatmap was used to determine correlations between features. For features that were more correlated, we created scatterplots and used linear and quadratic regressions to find preliminary relationships. We also created histograms of categorical data to see the frequency of each value for the categorical data.
-By common knowledge, we grouped the various genres into 10 overarching genres. Bar graphs were used to visualize mean values for each numerical feature for the overarching genres.
+Using domain knowledge, we grouped the various genres into 10 overarching genres. Bar graphs were used to visualize mean values for each numerical feature for the overarching genres.
 A random seed was used to split the data into 50% for training, 20% for validation, and 20% for testing.
 
 ### II
 We grouped the given genres into 10 overarching genres. We removed the "Unnamed: 0" column, any rows with NaN values, and any songs with a duration of less than 30 seconds. We also removed songs with a tempo or time signature of 0, as these values do not make sense for songs.
 
-
 ### III
-Popularity, duration, danceability, energy, loudness, speechiness, acousticness, instrumentalness, liveness, valence, and tempo were investigated with both linear and quadratic regression. We used a sequential feature selector with forward selection to determine the most influential features. We used R^2 as the scoring metric for cross-validation to identify optimal features. Because we used this metric, we found that regularization was not needed. 
+Popularity, duration, danceability, energy, loudness, speechiness, acousticness, instrumentalness, liveness, valence, and tempo were used in both linear and quadratic regression. We used a sequential feature selector, forward selection, to determine the most influential features. We used R^2 as the scoring metric for cross-validation to identify optimal features. Because we used this metric, we found that regularization was not necessary. 
 Overall, we determined that the importance of certain features varied by genre group. For example, energy was more prominent for rock and electronic genres, acousticness and liveness were more prominent for folk and classical genres, and danceability was more prominent for pop and hip-hop genres.
 
 ### IV
-The track-genre column was encoded using a label encoder to map genres to numerical labels. Non-numeric columns were converted to dummy variables using one-hot encoding, and data was standardized recall, f1-score, and support for each genre. We also plotted ROC curves and found AUC to determine the model's ability to distinguish between classes. The default solver, lbfgs, used L2 regularization to prevent overfitting.
+The track-genre column was encoded using a label encoder to map genres to numerical labels. Non-numeric columns were converted to dummy variables using one-hot encoding, and data was standardized for recall, f1-score, and support for each genre. We also plotted ROC curves and found the AUC to determine the model's ability to distinguish between classes. The default solver lbfgs used L2 regularization to prevent overfitting.
 We used logistic regression to provide coefficients for each feature. We found that there were different key features for each genre. Energy contributed largely to rock, metal, and electronic music. Danceability contributed largely to pop and hip-hop identification. Acousticness contributed largely to classical and folk music. Loudness contributed largely to metal music.
 
 ### V
-We used KNN, a decision tree, and a random forest to analyze our data. Out of these three, the decision tree had the best accuracy (**SOMEONE CORRECT ME ON THIS**). KNN was inefficient in analyzing our data due to the dataset's high dimensionality. The random forests had too much computational cost for our devices, making it difficult to efficiently analyze the data.
+We used KNN, a decision tree, and a random forest to analyze our data. Out of these three, the decision tree had the best accuracy (**SOMEONE CORRECT ME ON THIS**). KNN was inefficient in analyzing our data due to the dataset's high dimensionality. Meanwhile, the random forest had too much computational cost for our devices, making it difficult to efficiently analyze the data.
 
 ### VI
-One-hot encoding was applied so that PCA could be used for the data set, and the features were standardized. It was found that the first two principal components produced the most variability in the data. However, after applying logistic regression to this dataset, we still produced relatively low accuracy rate of about 30% while the silhouette scores were also low. Therefore, this clustering by principal component selection was not useful.
+One-hot encoding was applied so that PCA could be used for the data set, and the features were standardized beforehand. It was found that the first two principal components contained the most variation in the data. However, after applying logistic regression to this dataset, we still produced relatively low accuracy rate of about 30%; the silhouette scores were also low. Therefore, this clustering after principal component selection was not useful.
 
 ### VII
-The data was put into numerical values and standardized. Non-numeric columns were dropped. There was a single layer with 64 neurons and a ReLU activation function. Overfitting was prevented using a dropout rate of 0.5. An initial learning rate of 0.01 was used, and the learning rate was reduced after every 10 epochs. (**CORRECT ME IF I'M WRONG AFTER THIS**)Overall, the neural network took a long time to process, and we stopped training after 6 epochs. The validation loss was slightly lower, althought similar to the training loss. Overall, our accuracy remained around 20%, calling for redevelopment of our neural network design.
+The data was encoded into numerical values and standardized. Non-numeric columns were dropped. There was a single layer with 64 neurons and a ReLU activation function. Overfitting was prevented using a dropout rate of 0.5. An initial learning rate of 0.01 was used, and the learning rate was reduced after every 10 epochs. (**CORRECT ME IF I'M WRONG AFTER THIS**)The neural network took a long time to process, and we stopped training after 6 epochs. The validation loss was slightly lower, althought similar to the training loss. Overall, our accuracy remained around 20%, calling for redevelopment of our neural network design.
 
 ### VIII
 Give examples of hyperparameter tuning that you applied in preparing your project and how
