@@ -18,7 +18,7 @@ The main feature we're interested in with this dataset is __song genre__, and ho
 Understanding these relationships is crucial for several reasons - first, accurate genre prediction can _enhance recommendation systems_, providing users with more personalized and enjoyable listening experiences. For artists and producers, insights from our analysis can _guide the creative process_, helping them understand trends and preferences within different genres. Finally, we contribute to the broader field of musicology by providing _data-driven insights_ into the characteristics that define and differentiate musical genres.
 
 ### III
-We try numerous different methodologies, including __linear regression__, __logistic regression__, __decision trees__, __PCA/clustering__, and __neural networks__. Our two key methodologies were __Neural Networks__ and __Decision Trees__ - these worked most effectively to predict a song's genre through its other qualities. Our most effective methodologies were __Neural Networks__, __Decision Trees__, and __Random Forest__ - these worked most effectively to predict a song's genre through its other qualities.
+We tried numerous different methodologies, including __linear regression__, __logistic regression__, __decision trees__, __PCA/clustering__, and __neural networks__. Our three key methodologies were __Neural Networks__, __Decision Trees__, and __Random Forest__ - these worked most effectively to predict a song's genre through its other qualities.
 
 Using Neural Networks, we were able to capture the complex relationships and variance between songs, making them ideal for effective predictions. However, due to insufficient computing resources for accurate training, we were unable to achieve an acceptable `F1 score`.
 
