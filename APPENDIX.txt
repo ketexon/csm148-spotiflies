@@ -2,7 +2,7 @@
 Boxplots were used to identify the spread of numerical data. Histograms of each feature were created to visualize the frequency of values for the data. By doing this, we determined the skewedness of each feature. 
 A heatmap was used to determine correlations between features. For features that were more correlated, we created scatterplots and used linear and quadratic regressions to find preliminary relationships. We also created histograms of categorical data to see the frequency of each value for the categorical data.
 Using domain knowledge, we grouped the various genres into 10 overarching genres. Bar graphs were used to visualize mean values for each numerical feature for the overarching genres.
-A random seed was used to split the data into 50% for training, 20% for validation, and 20% for testing.
+A random seed was used to split the data into 60% for training, 20% for validation, and 20% for testing.
 
 ### II
 We grouped the given genres into 10 overarching genres. We removed the "Unnamed: 0" column, any rows with NaN values, and any songs with a duration of less than 30 seconds. We also removed songs with a tempo or time signature of 0, as these values do not make sense for songs.
