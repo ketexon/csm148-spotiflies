@@ -1,54 +1,46 @@
 ### I
-<<<<<<< HEAD:APPENDIX.md
-
-Boxplots were used to identify the spread of numerical data. Histograms of each feature were created to visualize the frequency of values for the data. By doing this, we determined the skewedness of each feature. 
-=======
 Boxplots were used to identify the spread of numerical data. Histograms of each feature were created to visualize the frequency of values for the data. By doing this, we determined the skewedness of each feature.
->>>>>>> 536d575 (added neural networks to project code):APPENDIX.txt
 A heatmap was used to determine correlations between features. For features that were more correlated, we created scatterplots and used linear and quadratic regressions to find preliminary relationships. We also created histograms of categorical data to see the frequency of each value for the categorical data.
 Using domain knowledge, we grouped the various genres into 10 overarching genres. Bar graphs were used to visualize mean values for each numerical feature for the overarching genres.
 A random seed was used to split the data into 60% for training, 20% for validation, and 20% for testing.
 
 ### II
 
-We grouped the given genres into 10 overarching genres. We removed the "Unnamed: 0" column, any rows with NaN values, and any songs with a duration of less than 30 seconds. We also removed songs with a tempo or time signature of 0, as these values do not make sense for songs.
+We realized that many similar genres were classified into different groups, so we grouped the given genres into 10 overarching genres. These grouping are shown below. We removed the "Unnamed: 0" column, any rows with NaN values, and any songs with a duration of less than 30 seconds. We also removed songs with a tempo or time signature of 0, as these values do not make sense for songs.
+
+```
+{
+    'pop': ['cantopop', 'j-pop', 'j-idol', 'k-pop', 'mandopop', 'pop', 'indie-pop', 'power-pop', 'pop-film', 'synth-pop'],
+    'rock': ['alt-rock', 'alternative', 'hard-rock', 'indie', 'punk', 'j-rock', 'punk-rock', 'psych-rock', 'rock', 'rock-n-roll', 'grunge', 'emo', 'rockabilly', 'guitar'],
+    'metal': ['black-metal', 'death-metal', 'heavy-metal', 'metal', 'metalcore', 'grindcore'],
+    'electronic': ['edm', 'electro', 'electronic', 'house', 'garage', 'j-dance', 'hardcore', 'hardstyle', 'industrial', 'techno', 'trance', 'dubstep', 'idm', 'minimal-techno', 'progressive-house', 'chicago-house', 'deep-house', 'detroit-techno', 'disco', 'drum-and-bass', 'dub', 'club', 'dance', 'dancehall'],
+    'hip-hop': ['hip-hop', 'rap', 'r-n-b', 'breakbeat', 'trip-hop'],
+    'jazz': ['jazz', 'blues', 'soul', 'funk', 'ska', 'gospel'],
+    'classical': ['classical', 'opera', 'piano'],
+    'world': ['afrobeat', 'brazil', 'sertanejo', 'british', 'latin', 'latino', 'samba', 'salsa', 'reggae', 'reggaeton', 'tango', 'world-music', 'indian', 'iranian', 'turkish', 'malay', 'mpb', 'pagode', 'forro', 'french', 'german', 'spanish', 'swedish'],
+    'folk': ['folk', 'bluegrass', 'country', 'singer-songwriter', 'songwriter', 'honky-tonk'],
+    'misc': ['acoustic', 'ambient', 'anime', 'children', 'chill', 'comedy', 'disney', 'happy', 'party', 'study', 'sleep', 'show-tunes', 'new-age', 'kids', 'goth', 'groove', 'romance', 'sad']
+}
+```
 
 ### III
-<<<<<<< HEAD:APPENDIX.md
-
-Popularity, duration, danceability, energy, loudness, speechiness, acousticness, instrumentalness, liveness, valence, and tempo were used in both linear and quadratic regression. We used a sequential feature selector, forward selection, to determine the most influential features. We used R^2 as the scoring metric for cross-validation to identify optimal features. Because of the outputted metric, we found that regularization was not necessary. 
-=======
 Popularity, duration, danceability, energy, loudness, speechiness, acousticness, instrumentalness, liveness, valence, and tempo were used in both linear and quadratic regression. We used a sequential feature selector, forward selection, to determine the most influential features. We used R^2 as the scoring metric for cross-validation to identify optimal features. Because we used this metric, we found that regularization was not necessary.
->>>>>>> 536d575 (added neural networks to project code):APPENDIX.txt
 Overall, we determined that the importance of certain features varied by genre group. For example, energy was more prominent for rock and electronic genres, acousticness and liveness were more prominent for folk and classical genres, and danceability was more prominent for pop and hip-hop genres.
 
 ### IV
 
-The track-genre column was encoded using a label encoder to map genres to numerical labels. Non-numeric columns were converted to dummy variables using one-hot encoding, and data was standardized for recall, f1-score, and support for each genre. We also plotted ROC curves and found the AUC to determine the model's ability to distinguish between classes. The default solver lbfgs used L2 regularization to prevent overfitting.
-We used logistic regression to provide coefficients for each feature. We found that there were different key features for each genre. Energy contributed largely to rock, metal, and electronic music. Danceability contributed largely to pop and hip-hop identification. Acousticness contributed largely to classical and folk music. Loudness contributed largely to metal music.
+For logistic regression, the track-genre column was encoded using a label encoder to map genres to numerical labels. Non-numeric columns were converted via one-hot encoding, and data was standardized. We calculated accuracy, recall, and F1 score and plotted ROC curves and found the AUC to determine the model's ability to distinguish between classes. The default solver lbfgs used L2 regularization to prevent overfitting.
+
+We found that there were different key features for each genre. Energy contributed largely to rock, metal, and electronic music. Danceability contributed largely to pop and hip-hop identification. Acousticness contributed largely to classical and folk music. Loudness contributed largely to metal music.
 
 ### V
-<<<<<<< HEAD:APPENDIX.md
-
-We used KNN, a decision tree, and a random forest to analyze our data. Out of these three, the decision tree had the best accuracy (**SOMEONE CORRECT ME ON THIS**). KNN was inefficient in analyzing our data due to the dataset's high dimensionality, and the random forest was too computationally intensive for our devices which made it difficult to efficiently analyze the data.
-=======
 We used KNN, a decision tree, and a random forest to try to classify genres of our data. Out of these three, the random forests had the best accuracy on the test set at 0.67, and was the best method by far for classifying the data. As expected, KNN was inefficient in analyzing our data due to the dataset's high dimensionality, and categorical data . Meanwhile, the random forest had too much computational cost for our devices, making it difficult to efficiently analyze the data.
->>>>>>> 536d575 (added neural networks to project code):APPENDIX.txt
 
 ### VI
 
 One-hot encoding was applied so that PCA could be used for the data set, and the features were standardized beforehand. It was found that the first two principal components contained the most variation in the data. However, after applying logistic regression to this dataset, we still produced relatively low accuracy rate of about 30%; the silhouette scores were also low. Therefore, clustering after dimensionality reduction was not useful.
 
 ### VII
-<<<<<<< HEAD:APPENDIX.md
-
-The data was encoded into numerical values and standardized. Non-numeric columns were dropped. There was a single hidden layer with 64 neurons, and a ReLU activation function was used. Overfitting was prevented using a dropout rate of 0.5. An initial learning rate of 0.01 was used, and the learning rate was reduced after every 10 epochs. (**CORRECT ME IF I'M WRONG AFTER THIS**)The neural network took a long time to process, so training was stopped 6 epochs. The validation loss was slightly lower, althought similar to the training loss. Overall, our accuracy remained around 20%, calling for redevelopment of our neural network design.
-
-### VIII
-
-Give examples of hyperparameter tuning that you applied in preparing your project and how
-you chose the best parameters for models.
-=======
 We used the dataset without string features, and one-hot-encoded the categorical features.
 
 We went through a number of models, but ReLU, softmax, and dropout all significantly decreased the accuracy, so we ended up with a simpler model. Our model uses 2 hidden layers of size 64 using sigmoid activation, and log softmax output activation.
@@ -61,4 +53,3 @@ Interestingly, the model never predicted pop or hip-hop. This might be due to cl
 
 ### VIII
 We used PyTorch's `lr_find` function to find initial learning rate for our neural network.
->>>>>>> 536d575 (added neural networks to project code):APPENDIX.txt
